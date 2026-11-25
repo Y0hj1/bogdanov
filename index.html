@@ -9,13 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/*
-VOICE: тёплый, праздничный, но спокойный — фестиваль народного творчества.
-IDEA: расписной лист — страница в рамке из северной росписи, как поднос или открытка.
-PICTURE: орнаментальные поля по краям, орнамент под заголовком, фото работ.
-COLOUR and TYPE: крем #fcefe2, тёплые карточки, клюквенный #9b1d35, оливковые веточки; Lora + Manrope.
-LAYOUT: липкая шапка, секции по 1200px, сетки 5–6 колонок, на телефоне в 2 колонки.
-*/
+
 :root{color-scheme:light;--bg:#fcefe2;--card:#f9e3cf;--card2:#fbeadb;--line:#efd3bb;--red:#9b1d35;--red2:#b52a43;--ink:#3b2924;--muted:#6e5850;--olive:#7d8c3c;--wine:#8a1d33}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
@@ -315,12 +309,10 @@ h2 svg{width:34px;height:40px;flex:none}
   document.getElementById('gallery').innerHTML = gal.map(([src,t]) =>
     `<img src="${src}" alt="${t}">`).join('');
 
-  // тень у шапки
   const hdr = document.querySelector('header');
   const onScroll = () => hdr.classList.toggle('scrolled', scrollY > 10);
   addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-  // подсветка пункта меню
   const links = [...document.querySelectorAll('header nav a')];
   const secIO = new IntersectionObserver(es => {
     es.forEach(e => { if (e.isIntersecting) {
